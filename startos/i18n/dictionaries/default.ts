@@ -23,7 +23,7 @@ const dict = {
   'API Key': 14,
   'Your Maple API key. If left empty, clients must provide their own key via the Authorization header.': 15,
 
-  // init/initializeService.ts
+  // init/taskConfigure.ts
   'Set your Maple API key': 16,
 } as const
 
