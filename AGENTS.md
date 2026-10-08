@@ -18,16 +18,23 @@ Freshly scaffolded? Work the
 guide page, not a file in this repo — read it, don't copy it in.
 
 Keep `README.md` (technical reference for an AI support or administering agent) and
-`instructions.md` (end-user docs) in sync with your changes.
+`instructions.md` (end-user docs) in sync with your changes. This file restates neither:
+whoever changes the package has both, so it carries only what they don't — repo mechanics,
+a change that looks right and is not, where the next thing gets added, a naming trap, a
+build or test invocation particular to this repo.
 
-**Bugs and feature requests are GitHub issues on this repo** — file them as you find them.
+**Fix a defect you spot rather than reporting it** — you have the package open and the
+context to be sure. File **a GitHub issue on this repo** only when the call isn't yours to
+make: you can't pin the cause down, two defensible fixes exist, or it's too large to ride on
+the work in hand. An open issue is a report, not a queue — implement one when you're asked
+to or when it's labelled `Approved`, then close it with `Closes #<n>`.
+
 Don't record work in the repo instead: no `TODO.md`, no `NOTES.md`, no `PLAN.md`. What you
 verified, tried, and decided belongs in the commit message and the PR body.
 
 ## This repo
 
-- **`assets/ui/` is ours, not upstream's.** The upstream project ships an API and no interface; the chat page here is a single hand-written `index.html` served by nginx. It is not upstream's Maple client and doesn't track it.
-- **nginx reaches the proxy at `127.0.0.1:8080` because subcontainers share the service's network namespace.** That is also why exporting the `ui` interface exports the API surface with it — `proxy_pass` on `/v1/` makes the UI address answer API calls.
-- **`MAPLE_API_KEY` is omitted from the env when empty, not passed blank.** The two states are functionally different: with a key the proxy authenticates upstream itself, without one every caller must send its own. Don't "fix" this by defaulting it.
-- **The ports in `utils.ts` are duplicated in `assets/ui/nginx.conf`.** We choose the API port (`MAPLE_PORT` is passed to the image), but nginx's `proxy_pass` and `listen` hardcode both — so changing one constant without the conf breaks the UI's API path silently while both health checks stay green.
-- **The `configure` task is `important`, not `critical`, deliberately.** An unkeyed proxy is a supported configuration.
+- **Don't rename or move `apiHostId` or `apiPort` in `startos/utils.ts`** — open-webui-startos imports both from that path to reach the proxy over the bridge.
+- **Change the ports in `startos/utils.ts` and `assets/ui/nginx.conf` together** — nginx hardcodes both, and a mismatch breaks the UI's API path while both health checks stay green.
+- **Don't default `MAPLE_API_KEY` to a blank value** — an absent key and an empty one mean different things to the proxy.
+- **Keep the `configure` task `important`** — an unkeyed proxy is a supported configuration.
