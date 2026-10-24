@@ -18,7 +18,7 @@ export const main = sdk.setupMain(async ({ effects }) => {
     MAPLE_HOST: '0.0.0.0',
     MAPLE_PORT: String(apiPort),
     MAPLE_BACKEND_URL,
-    MAPLE_ENABLE_CORS: 'true',
+    MAPLE_ENABLE_CORS: MAPLE_API_KEY ? 'false' : 'true',
     RUST_LOG: 'info',
   }
   if (MAPLE_API_KEY) {

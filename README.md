@@ -97,7 +97,7 @@ Each is bound on its own MultiHost and not masked.
 
 **The two are not separate surfaces.** nginx forwards `/v1/` to the API server, so the Web UI address answers API calls as well — exporting only the UI does not keep the API private.
 
-**Cross-origin requests are enabled unconditionally**, so a page loaded from any origin can call the API from a browser that can reach the address.
+**Cross-origin requests are enabled only when no server-side key is configured.** In that mode, browser clients must supply their own key in the `Authorization` header. Setting a server-side key disables CORS: the bundled same-origin chat page and non-browser clients still work, but browser clients on other origins cannot call the API. Upstream ignores the server-side key whenever CORS is enabled.
 
 Consequences worth being explicit about: with a server-side key configured, **reaching the address is enough to spend against that key** — there is no second credential. Treat both addresses as secrets, or leave the key unset and let each client bring its own.
 
@@ -158,7 +158,7 @@ A restored instance comes back configured and working immediately, since nothing
 1. **Inference is not local.** Prompts are forwarded to the configured backend, which by default is operated by Maple.
 2. **Neither interface is authenticated by StartOS**, and with a server-side key, address knowledge is spending power.
 3. **The Web UI address also serves the API**, so the two cannot be exported independently.
-4. **CORS is on unconditionally** and is not configurable from the package.
+4. **CORS is enabled only without a server-side key.** Browser clients on other origins require that mode and must supply their own key.
 5. **The chat page is this package's own** — minimal, and not upstream's client. It keeps no history and stores nothing.
 6. **The only configuration is the backend URL and the key.** Every other upstream setting is left at its default and is not exposed.
 

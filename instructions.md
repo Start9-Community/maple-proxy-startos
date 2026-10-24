@@ -32,6 +32,8 @@ Use the **API** interface address with any OpenAI-compatible client. Point the c
 
 If you saved an API key with the **Configure** action, anyone who can reach the API address can use that key without supplying one of their own — and because the Web UI serves the same API paths, its address works the same way. Treat both addresses as private, or leave the key empty and have each client bring its own.
 
+Browser clients hosted on another origin require the saved API key to be empty and must send their own key in the `Authorization` header. Saving a key disables cross-origin browser access; the bundled Web UI and non-browser clients still work.
+
 ### Configure action
 
 Run **Configure** any time to change your API key or backend URL. The service restarts to pick up the new values.
