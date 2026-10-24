@@ -6,14 +6,14 @@ export const manifest = setupManifest({
   title: 'Maple Proxy',
   license: 'MIT',
   packageRepo: 'https://github.com/Start9-Community/maple-proxy-startos',
-  upstreamRepo: 'https://github.com/OpenSecretCloud/maple-proxy',
+  upstreamRepo: 'https://github.com/MaplePrivacyLabs/Maple/tree/master/proxy',
   marketingUrl: 'https://trymaple.ai/',
   donationUrl: null,
   description: { short, long },
   volumes: ['main'],
   images: {
     'maple-proxy': {
-      source: { dockerTag: 'ghcr.io/opensecretcloud/maple-proxy:0.3.2' },
+      source: { dockerTag: 'ghcr.io/mapleprivacylabs/maple-proxy:0.4.2' },
       arch: ['x86_64', 'aarch64'],
     },
     'maple-ui': {

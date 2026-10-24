@@ -2,7 +2,7 @@
 
 ## Documentation
 
-- [Maple Proxy README](https://github.com/OpenSecretCloud/maple-proxy/blob/master/README.md) — the upstream project overview and configuration reference.
+- [Maple Proxy README](https://github.com/MaplePrivacyLabs/Maple/blob/master/proxy/README.md) — the upstream project overview and configuration reference.
 
 ## What you get on StartOS
 
@@ -31,6 +31,8 @@ Open the **Web UI** interface from the Dashboard to chat through your local Mapl
 Use the **API** interface address with any OpenAI-compatible client. Point the client's base URL at the API interface address and use your configured Maple API key (or supply one per-request via the `Authorization` header).
 
 If you saved an API key with the **Configure** action, anyone who can reach the API address can use that key without supplying one of their own — and because the Web UI serves the same API paths, its address works the same way. Treat both addresses as private, or leave the key empty and have each client bring its own.
+
+Browser clients hosted on another origin require the saved API key to be empty and must send their own key in the `Authorization` header. Saving a key disables cross-origin browser access; the bundled Web UI and non-browser clients still work.
 
 ### Configure action
 
