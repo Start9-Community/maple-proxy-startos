@@ -9,9 +9,9 @@
 > upstream documentation is accurate and fully applicable — see the
 > Documentation section of `instructions.md` for links.
 
-[Maple Proxy](https://github.com/OpenSecretCloud/maple-proxy) puts an OpenAI-compatible API in front of [Maple/OpenSecret's](https://trymaple.ai/) enclave-hosted inference, so any OpenAI client can talk to it. This package runs that proxy and adds a small chat page of its own, so the service is usable without configuring a separate client.
+[Maple Proxy](https://github.com/MaplePrivacyLabs/Maple/tree/master/proxy) puts an OpenAI-compatible API in front of [Maple/OpenSecret's](https://trymaple.ai/) enclave-hosted inference, so any OpenAI client can talk to it. This package runs that proxy and adds a small chat page of its own, so the service is usable without configuring a separate client.
 
-- **Upstream repo:** <https://github.com/OpenSecretCloud/maple-proxy>
+- **Upstream repo:** <https://github.com/MaplePrivacyLabs/Maple/tree/master/proxy>
 - **Wrapper repo:** <https://github.com/Start9-Community/maple-proxy-startos>
 
 ---
@@ -37,11 +37,11 @@
 
 Two images: the upstream proxy, and a web page built here.
 
-| Property      | Value                                                      |
-| ------------- | ---------------------------------------------------------- |
-| Images        | `ghcr.io/opensecretcloud/maple-proxy`, plus an nginx build |
-| Architectures | x86_64, aarch64                                            |
-| Command       | The proxy's entrypoint; nginx in the foreground            |
+| Property      | Value                                                       |
+| ------------- | ----------------------------------------------------------- |
+| Images        | `ghcr.io/mapleprivacylabs/maple-proxy`, plus an nginx build |
+| Architectures | x86_64, aarch64                                             |
+| Command       | The proxy's entrypoint; nginx in the foreground             |
 
 | Subcontainer      | Purpose                                           |
 | ----------------- | ------------------------------------------------- |
@@ -168,7 +168,7 @@ A restored instance comes back configured and working immediately, since nothing
 
 ```yaml
 package_id: maple-proxy
-image: ghcr.io/opensecretcloud/maple-proxy # plus a locally built nginx image for the UI
+image: ghcr.io/mapleprivacylabs/maple-proxy # plus a locally built nginx image for the UI
 architectures:
   - x86_64
   - aarch64

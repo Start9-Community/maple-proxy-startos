@@ -2,7 +2,7 @@
 
 ## Documentation
 
-- [Maple Proxy README](https://github.com/OpenSecretCloud/maple-proxy/blob/master/README.md) — the upstream project overview and configuration reference.
+- [Maple Proxy README](https://github.com/MaplePrivacyLabs/Maple/blob/master/proxy/README.md) — the upstream project overview and configuration reference.
 
 ## What you get on StartOS
 
