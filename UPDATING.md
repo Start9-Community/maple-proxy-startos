@@ -9,7 +9,7 @@ Maple Proxy ships two images: the upstream `maple-proxy` (pulled from GHCR) and 
   TOKEN=$(curl -s "https://ghcr.io/token?scope=repository:mapleprivacylabs/maple-proxy:pull" | jq -r .token)
   curl -s -H "Authorization: Bearer $TOKEN" https://ghcr.io/v2/mapleprivacylabs/maple-proxy/tags/list | jq -r '.tags[]' | sort -V
   ```
-  The pin lives in `startos/manifest/index.ts` under `images['maple-proxy'].source.dockerTag` (currently `ghcr.io/mapleprivacylabs/maple-proxy:0.4.2`). To review a jump, find the app release whose `proxy/Cargo.toml` carries the new version and diff `proxy/` between the two releases.
+  The pin lives in `startos/manifest/index.ts` under `images['maple-proxy'].source.dockerTag`. To review a jump, find the app release whose `proxy/Cargo.toml` carries the new version and diff `proxy/` between the two releases.
 
 ## Applying the bump
 
