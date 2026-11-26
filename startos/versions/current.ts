@@ -1,18 +1,18 @@
 import { VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.4.2:1',
+  version: '0.5.1:0',
   releaseNotes: {
     en_US:
-      'Requires StartOS 0.4.1 or later. Fixes memory use growing while the service runs.',
+      'Update Maple Proxy to 0.5.1. Streaming responses tolerate longer pauses from the provider. Requires StartOS 0.4.2 or later.',
     es_ES:
-      'Requiere StartOS 0.4.1 o posterior. Corrige el aumento del uso de memoria mientras el servicio está en ejecución.',
+      'Actualiza Maple Proxy a 0.5.1. Las respuestas en streaming toleran pausas más largas del proveedor. Requiere StartOS 0.4.2 o posterior.',
     de_DE:
-      'Erfordert StartOS 0.4.1 oder neuer. Behebt einen während der Laufzeit des Dienstes ansteigenden Speicherverbrauch.',
+      'Aktualisiert Maple Proxy auf 0.5.1. Streaming-Antworten unterstützen längere Pausen beim Anbieter. Erfordert StartOS 0.4.2 oder neuer.',
     pl_PL:
-      'Wymaga StartOS 0.4.1 lub nowszego. Naprawia wzrost zużycia pamięci podczas działania usługi.',
+      'Aktualizacja Maple Proxy do 0.5.1. Odpowiedzi strumieniowe tolerują dłuższe przerwy po stronie dostawcy. Wymaga StartOS 0.4.2 lub nowszego.',
     fr_FR:
-      "Nécessite StartOS 0.4.1 ou une version ultérieure. Corrige l'augmentation de la consommation de mémoire pendant le fonctionnement du service.",
+      'Mise à jour de Maple Proxy vers 0.5.1. Les réponses en streaming tolèrent des pauses plus longues du fournisseur. Nécessite StartOS 0.4.2 ou ultérieur.',
   },
   migrations: {
     up: async ({ effects }) => {},
